@@ -14,9 +14,9 @@ type OrientFunc = (
   n: number
 ) => (p: number, i: number) => number;
 
-export const nextPerm: PermutationFunc = (how) => (p, i, what) => what[how[i]];
+export const nextPerm: PermutationFunc = (how) => (_, i, what) => what[how[i]];
 
-export const prevPerm: PermutationFunc = (how) => (p, i, what) =>
+export const prevPerm: PermutationFunc = (how) => (_, i, what) =>
   how.indexOf(what[i]);
 
 export const nextOrient: OrientFunc = (how, n) => (p, i) => (p + how[i]) % n;

@@ -16,8 +16,11 @@ const DFL = 7;
  * Parity is the number of swaps needed to sort a permutation
  * If the number of swaps is odd, the permutation has odd parity
  */
-export const hasParity = (cube: Cube): string => {
+export const hasParity = (cube: Cube): string | undefined => {
   const cp = translateCP(cube.corners.perm);
+  if (cp.some((i) => i === null)) {
+    return undefined;
+  }
 
   const [_, __, ___, ufr, dfr, dbr, dfl] = cp;
 
@@ -44,8 +47,8 @@ export const hasParity = (cube: Cube): string => {
 
   // base case
   if (dfr === DFR && dbr === DBR) {
-    let four = cp.findIndex((i) => i === 4);
-    let [a, b] = [cp[(four + 1) % 4], cp[(four + 2) % 4]];
+    let fourIndex = cp.findIndex((i) => i === 4);
+    let [a, b] = [cp[(fourIndex + 1) % 4], cp[(fourIndex + 2) % 4]];
     return `${a}${b}`;
   }
 
@@ -65,21 +68,6 @@ export const hasParity = (cube: Cube): string => {
   newCube.doMoves("U");
 
   return hasParity(newCube);
-};
-
-export const insertionSort = (arr: number[]) => {
-  let swaps = 0;
-  for (let i = 1; i < arr.length; i++) {
-    let j = i - 1;
-    const key = arr[i];
-    while (j >= 0 && arr[j] > key) {
-      arr[j + 1] = arr[j];
-      swaps++;
-      j--;
-    }
-    arr[j + 1] = key;
-  }
-  return swaps % 2 === 1;
 };
 
 const translation = [2, 3, 4, 1, null, 6, 5, 7];

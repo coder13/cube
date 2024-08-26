@@ -235,7 +235,7 @@ export default class Cube {
   }
 
   getFace(face: "up" | "left" | "front" | "right" | "back" | "down") {
-    const { corners, edges, centers } = this;
+    const { corners, edges } = this;
     return Faces[face](corners.perm, corners.orient, edges.perm, edges.orient);
   }
 }

@@ -6,8 +6,8 @@
   "license": "MIT",
   "private": true,
   "workspaces": [
-    "packages/*",
-    "apps/*"
+    "packages/lib",
+    "apps/webapp"
   ],
   "packageManager": "yarn@1.22.22",
   "dependencies": {
