@@ -1,0 +1,16 @@
+{
+  "name": "cp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Cailyn Hoover <choover11@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "packageManager": "yarn@1.22.22",
+  "dependencies": {
+    "turbo": "^2.0.14"
+  }
+}

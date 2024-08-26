@@ -1,0 +1,21 @@
+{
+  "name": "@cp/lib",
+  "version": "0.0.0",
+  "main": "src/index.ts",
+  "license": "MIT",
+  "private": "true",
+  "scripts": {
+    "build": "tsc -b ./"
+  },
+  "dependencies": {
+    "@types/node": "^22.5.0",
+    "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.1.6",
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
