@@ -1,15 +1,21 @@
-# cp
+# cube
 
-To install dependencies:
+Various tools and experiments for working with the Rubik's Cube.
+
+## To install dependencies:
 
 ```bash
-bun install
+yarn install
 ```
 
 To run:
 
 ```bash
-bun run index.js
+yarn turbo dev
 ```
 
-This project was created using `bun init` in bun v1.0.16. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+To build:
+
+```bash
+yarn turbo build
+```

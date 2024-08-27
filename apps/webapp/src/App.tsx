@@ -1,5 +1,6 @@
 import { hasParity, Cube, translateCP } from "@cp/lib";
 import { useEffect, useMemo, useState } from "react";
+import { Cube as CubeRenderer } from "react-cube-svg";
 
 function App() {
   const [input, setInput] = useState(() => {
@@ -25,14 +26,18 @@ function App() {
     }
   }, [input]);
 
-  const cube = useMemo(() => {
-    const trimmed = input
-      .split("\n")
-      .map((i) => i.replace(/\/\/.*$/, ""))
-      .join(" ");
+  const trimmed = useMemo(
+    () =>
+      input
+        .split("\n")
+        .map((i) => i.replace(/\/\/.*$/, ""))
+        .join(" "),
+    [input]
+  );
 
+  const cube = useMemo(() => {
     return new Cube(trimmed);
-  }, [input]);
+  }, [trimmed]);
 
   const swaps = useMemo(() => {
     const cp = translateCP(cube.corners.perm);
@@ -129,6 +134,13 @@ function App() {
         </span>
         <span>Tracing: {hasParity(cube)}</span>
         {swaps && <span>Swap: {swaps.map((i) => i.join("-")).join(", ")}</span>}
+      </div>
+      <div
+        style={{
+          padding: "0.25em",
+        }}
+      >
+        <CubeRenderer scramble={trimmed} />
       </div>
       <a
         href={`https://alg.cubing.net/?alg=${input}`}
