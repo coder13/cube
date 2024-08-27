@@ -2,7 +2,7 @@ import { PieceSetWithOrientation, MoveDef } from "./types";
 import { solved, cycle, combine } from "./utils";
 
 // cube containing corners and edges each containing a permutation and orientation array
-const Moves: { [x: string]: MoveDef } = {
+export const Moves: { [x: string]: MoveDef } = {
   /* Normal Moves: */
   U: {
     corners: {
@@ -110,9 +110,11 @@ Moves.l = combine([Moves.L, Moves["M'"]]);
 Moves.b = combine([Moves.B, Moves.S]);
 ["y", "x", "z"].forEach(gen);
 
+export type Face = "up" | "down" | "left" | "right" | "back" | "front";
+
 // 0    1     2    3     4    5     6    7
 // UBL, UBR,  UFR, UFL,  DBL, DBR,  DFR, DFL
-const Corners = [
+export const Corners: Face[][] = [
   ["up", "left", "back"],
   ["up", "back", "right"],
   ["up", "right", "front"],
@@ -125,7 +127,7 @@ const Corners = [
 
 // 0   1   2   3    4   5   6   7     8   9   10  11
 // UB, UR, UF, UL,  BL, BR, FR, FL,   DB, DR, DF, DL
-const Edges = [
+const Edges: Face[][] = [
   ["up", "back"],
   ["up", "right"],
   ["up", "front"],
@@ -140,7 +142,7 @@ const Edges = [
   ["down", "left"],
 ];
 
-const Centers = ["up", "left", "front", "right", "back", "down"];
+const Centers: Face[] = ["up", "left", "front", "right", "back", "down"];
 
 const corner = (p: number, o: number, offset = 0) =>
   Corners[p][(o + offset) % 3];

@@ -1,4 +1,5 @@
-import Cube from "./cube";
+import Cube, { Corners, Moves } from "./cube";
+import { perm } from "./utils";
 
 // const UFL = 0;
 // const UBL = 1;
@@ -61,6 +62,7 @@ export const hasParity = (cube: Cube): string | undefined => {
   if (DBR === dbr && DFR === ufr) {
     const newCube = new Cube(cube.moves);
     newCube.doMoves("R2 U R2 U' R2");
+
     return hasParity(newCube);
   }
 
@@ -71,9 +73,23 @@ export const hasParity = (cube: Cube): string | undefined => {
 };
 
 const translation = [2, 3, 4, 1, null, 6, 5, 7];
-export const translateCP = (perm: number[]) => {
-  const [UBL, UBR, UFR, UFL, _, DBR, DFR, DFL] = perm;
-  return [UFL, UBL, UBR, UFR, DFR, DBR, DFL].map(
+export const translateCP = (cp: number[], depth = 0): number[] => {
+  const DBL = cp[4];
+  const corner = Corners[DBL];
+
+  if (corner[0] === "up") {
+    const newPerm = Moves["x2"].corners!.perm.map(perm(cp));
+    return translateCP(newPerm, depth + 1);
+  } else if (
+    corner.join("").indexOf("left") === -1 ||
+    corner.join("").indexOf("back") === -1
+  ) {
+    const newPerm = Moves["y"].corners!.perm.map(perm(cp));
+    return translateCP(newPerm, depth + 1);
+  }
+
+  const [ubl, ubr, ufr, ufl, _, dbr, dfr, dfl] = cp;
+  return [ufl, ubl, ubr, ufr, dfr, dbr, dfl].map(
     (i) => translation[i]
   ) as number[];
 };

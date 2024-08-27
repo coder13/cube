@@ -6,22 +6,17 @@ export const swap = (arr: number[], i: number, j: number) => {
   return newArr;
 };
 
-type PermutationFunc = (
+export type PermutationFunc = (
   how: number[]
 ) => (p: number, i: number, what: number[]) => number;
-type OrientFunc = (
+export type OrientFunc = (
   how: number[],
   n: number
 ) => (p: number, i: number) => number;
 
-export const nextPerm: PermutationFunc = (how) => (_, i, what) => what[how[i]];
+export const perm: PermutationFunc = (how) => (_, i, what) => what[how[i]];
 
-export const prevPerm: PermutationFunc = (how) => (_, i, what) =>
-  how.indexOf(what[i]);
-
-export const nextOrient: OrientFunc = (how, n) => (p, i) => (p + how[i]) % n;
-
-export const prevOrient: OrientFunc = (how, n) => (p, i) => (p + how[i]) % n;
+export const orient: OrientFunc = (how, n) => (p, i) => (p + how[i]) % n;
 
 export const solved = (): Puzzle => ({
   corners: {
@@ -35,35 +30,28 @@ export const solved = (): Puzzle => ({
   centers: [0, 1, 2, 3, 4, 5],
 });
 
-export const cycle = (_pieces: MoveDef, _cube: MoveDef, dir?: number) => {
+export const cycle = (_move: MoveDef, _cube: MoveDef) => {
   const cube: Puzzle = { ...solved(), ..._cube };
-  const pieces: Puzzle = { ...solved(), ..._pieces }; // fill in the gaps
+  const move: Puzzle = { ...solved(), ..._move }; // fill in the gaps
 
-  const inv = dir && dir < 0;
-
-  const perm = inv ? prevPerm : nextPerm;
-  const orient = inv ? prevOrient : nextOrient;
-
-  const cp = perm(pieces.corners.perm);
-  const co = orient(pieces.corners.orient, 3);
-  const ep = perm(pieces.edges.perm);
-  const eo = orient(pieces.edges.orient, 2);
+  const cp = perm(move.corners.perm);
+  const co = orient(move.corners.orient, 3);
+  const ep = perm(move.edges.perm);
+  const eo = orient(move.edges.orient, 2);
 
   return {
     corners: {
       perm: cube.corners.perm.map(cp),
-      orient: !inv
-        ? cube.corners.orient.map(co).map(cp)
-        : cube.corners.orient.map(cp).map(co),
+      orient: cube.corners.orient.map(co).map(cp),
     },
     edges: {
       perm: cube.edges.perm.map(ep),
       orient: cube.edges.orient.map(eo).map(ep),
     },
-    centers: cube.centers.map(perm(pieces.centers)),
+    centers: cube.centers.map(perm(move.centers)),
   };
 };
 
-export const combine = (moves: MoveDef[]) => {
-  return [solved(), ...moves].reduce(cycle);
+export const combine = (moves: MoveDef[]): Puzzle => {
+  return moves.reduce(cycle, solved()) as Puzzle;
 };

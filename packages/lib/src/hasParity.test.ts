@@ -1,5 +1,5 @@
 import Cube from "./cube";
-import { hasParity } from "./hasParity";
+import { hasParity, translateCP } from "./hasParity";
 
 import { describe, expect, test } from "bun:test";
 
@@ -57,5 +57,23 @@ describe("hasParity", () => {
     expect(hasParity(cube.doMoves("F"))).toBe("32");
     expect(hasParity(cube.doMoves("F'"))).not.toBe("12");
     expect(hasParity(cube.doMoves("F2 F U F"))).toBe("12");
+  });
+});
+
+describe.only("translateCP", () => {
+  test("should handle any corner in DBL", () => {
+    expect(translateCP(new Cube("L2").corners.perm)).toMatchObject([
+      1, 2, 5, 6, 3, 4, 7,
+    ]);
+    expect(translateCP(new Cube("L2 R2").corners.perm)).toMatchObject([
+      1, 2, 3, 4, 5, 6, 7,
+    ]);
+
+    expect(translateCP(new Cube("D").corners.perm)).toMatchObject([
+      4, 1, 2, 3, 5, 6, 7,
+    ]);
+    expect(translateCP(new Cube("D U'").corners.perm)).toMatchObject([
+      1, 2, 3, 4, 5, 6, 7,
+    ]);
   });
 });

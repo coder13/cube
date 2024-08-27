@@ -1,0 +1,1363 @@
+// Bun Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cube Can do basic moves 1`] = `
+Cube {
+  "centers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+  ],
+  "corners": {
+    "orient": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    ],
+    "perm": [
+      3,
+      0,
+      1,
+      2,
+      4,
+      5,
+      6,
+      7,
+    ],
+  },
+  "edges": {
+    "orient": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    ],
+    "perm": [
+      3,
+      0,
+      1,
+      2,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+    ],
+  },
+  "moves": " U",
+}
+`;
+
+exports[`Cube Can do basic moves 2`] = `
+Cube {
+  "centers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+  ],
+  "corners": {
+    "orient": [
+      0,
+      2,
+      1,
+      0,
+      0,
+      1,
+      2,
+      0,
+    ],
+    "perm": [
+      3,
+      1,
+      6,
+      2,
+      4,
+      0,
+      5,
+      7,
+    ],
+  },
+  "edges": {
+    "orient": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+    ],
+    "perm": [
+      3,
+      6,
+      1,
+      2,
+      4,
+      0,
+      9,
+      7,
+      8,
+      5,
+      10,
+      11,
+    ],
+  },
+  "moves": " U R",
+}
+`;
+
+exports[`Cube Can do basic moves 3`] = `
+Cube {
+  "centers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+  ],
+  "corners": {
+    "orient": [
+      0,
+      2,
+      2,
+      1,
+      0,
+      1,
+      2,
+      1,
+    ],
+    "perm": [
+      3,
+      1,
+      2,
+      7,
+      4,
+      0,
+      6,
+      5,
+    ],
+  },
+  "edges": {
+    "orient": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+    ],
+    "perm": [
+      3,
+      6,
+      7,
+      2,
+      4,
+      0,
+      1,
+      10,
+      8,
+      5,
+      9,
+      11,
+    ],
+  },
+  "moves": " U R F",
+}
+`;
+
+exports[`Cube Can do basic moves 4`] = `
+Cube {
+  "centers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+  ],
+  "corners": {
+    "orient": [
+      0,
+      2,
+      2,
+      1,
+      1,
+      2,
+      1,
+      0,
+    ],
+    "perm": [
+      3,
+      1,
+      2,
+      7,
+      0,
+      6,
+      5,
+      4,
+    ],
+  },
+  "edges": {
+    "orient": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+    ],
+    "perm": [
+      3,
+      6,
+      7,
+      2,
+      4,
+      0,
+      1,
+      10,
+      5,
+      9,
+      11,
+      8,
+    ],
+  },
+  "moves": " U R F D",
+}
+`;
+
+exports[`Cube Can do basic moves 5`] = `
+Cube {
+  "centers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+  ],
+  "corners": {
+    "orient": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      1,
+      2,
+    ],
+    "perm": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      6,
+      5,
+      7,
+    ],
+  },
+  "edges": {
+    "orient": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+    ],
+    "perm": [
+      3,
+      6,
+      7,
+      4,
+      8,
+      0,
+      1,
+      2,
+      5,
+      9,
+      11,
+      10,
+    ],
+  },
+  "moves": " U R F D L",
+}
+`;
+
+exports[`Cube Can do basic moves 6`] = `
+Cube {
+  "centers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+  ],
+  "corners": {
+    "orient": [
+      1,
+      0,
+      2,
+      2,
+      0,
+      1,
+      1,
+      2,
+    ],
+    "perm": [
+      1,
+      6,
+      2,
+      3,
+      0,
+      4,
+      5,
+      7,
+    ],
+  },
+  "edges": {
+    "orient": [
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      1,
+    ],
+    "perm": [
+      0,
+      6,
+      7,
+      4,
+      3,
+      5,
+      1,
+      2,
+      8,
+      9,
+      11,
+      10,
+    ],
+  },
+  "moves": " U R F D L B",
+}
+`;
+
+exports[`Cube Cube.getFace 1`] = `
+[
+  [
+    "up",
+    "up",
+    "up",
+  ],
+  [
+    "up",
+    "up",
+    "up",
+  ],
+  [
+    "up",
+    "up",
+    "up",
+  ],
+]
+`;
+
+exports[`Cube Cube.getFace 2`] = `
+[
+  [
+    "right",
+    "right",
+    "right",
+  ],
+  [
+    "right",
+    "right",
+    "right",
+  ],
+  [
+    "right",
+    "right",
+    "right",
+  ],
+]
+`;
+
+exports[`Cube Cube.getFace 3`] = `
+[
+  [
+    "front",
+    "front",
+    "front",
+  ],
+  [
+    "front",
+    "front",
+    "front",
+  ],
+  [
+    "front",
+    "front",
+    "front",
+  ],
+]
+`;
+
+exports[`Cube U 1`] = `
+[
+  [
+    "up",
+    "up",
+    "up",
+  ],
+  [
+    "up",
+    "up",
+    "up",
+  ],
+  [
+    "up",
+    "up",
+    "up",
+  ],
+]
+`;
+
+exports[`Cube U 2`] = `
+[
+  [
+    "down",
+    "down",
+    "down",
+  ],
+  [
+    "down",
+    "down",
+    "down",
+  ],
+  [
+    "down",
+    "down",
+    "down",
+  ],
+]
+`;
+
+exports[`Cube U 3`] = `
+[
+  [
+    "front",
+    "front",
+    "front",
+  ],
+  [
+    "left",
+    "left",
+    "left",
+  ],
+  [
+    "left",
+    "left",
+    "left",
+  ],
+]
+`;
+
+exports[`Cube U 4`] = `
+[
+  [
+    "back",
+    "back",
+    "back",
+  ],
+  [
+    "right",
+    "right",
+    "right",
+  ],
+  [
+    "right",
+    "right",
+    "right",
+  ],
+]
+`;
+
+exports[`Cube U 5`] = `
+[
+  [
+    "right",
+    "right",
+    "right",
+  ],
+  [
+    "front",
+    "front",
+    "front",
+  ],
+  [
+    "front",
+    "front",
+    "front",
+  ],
+]
+`;
+
+exports[`Cube U 6`] = `
+[
+  [
+    "left",
+    "left",
+    "left",
+  ],
+  [
+    "back",
+    "back",
+    "back",
+  ],
+  [
+    "back",
+    "back",
+    "back",
+  ],
+]
+`;
+
+exports[`Cube R 1`] = `
+[
+  [
+    "up",
+    "up",
+    "front",
+  ],
+  [
+    "up",
+    "up",
+    "front",
+  ],
+  [
+    "up",
+    "up",
+    "front",
+  ],
+]
+`;
+
+exports[`Cube R 2`] = `
+[
+  [
+    "down",
+    "down",
+    "back",
+  ],
+  [
+    "down",
+    "down",
+    "back",
+  ],
+  [
+    "down",
+    "down",
+    "back",
+  ],
+]
+`;
+
+exports[`Cube R 3`] = `
+[
+  [
+    "left",
+    "left",
+    "left",
+  ],
+  [
+    "left",
+    "left",
+    "left",
+  ],
+  [
+    "left",
+    "left",
+    "left",
+  ],
+]
+`;
+
+exports[`Cube R 4`] = `
+[
+  [
+    "right",
+    "right",
+    "right",
+  ],
+  [
+    "right",
+    "right",
+    "right",
+  ],
+  [
+    "right",
+    "right",
+    "right",
+  ],
+]
+`;
+
+exports[`Cube R 5`] = `
+[
+  [
+    "front",
+    "front",
+    "down",
+  ],
+  [
+    "front",
+    "front",
+    "down",
+  ],
+  [
+    "front",
+    "front",
+    "down",
+  ],
+]
+`;
+
+exports[`Cube R 6`] = `
+[
+  [
+    "up",
+    "back",
+    "back",
+  ],
+  [
+    "up",
+    "back",
+    "back",
+  ],
+  [
+    "up",
+    "back",
+    "back",
+  ],
+]
+`;
+
+exports[`Cube F 1`] = `
+[
+  [
+    "up",
+    "up",
+    "up",
+  ],
+  [
+    "up",
+    "up",
+    "up",
+  ],
+  [
+    "left",
+    "left",
+    "left",
+  ],
+]
+`;
+
+exports[`Cube F 2`] = `
+[
+  [
+    "right",
+    "right",
+    "right",
+  ],
+  [
+    "down",
+    "down",
+    "down",
+  ],
+  [
+    "down",
+    "down",
+    "down",
+  ],
+]
+`;
+
+exports[`Cube F 3`] = `
+[
+  [
+    "left",
+    "left",
+    "down",
+  ],
+  [
+    "left",
+    "left",
+    "down",
+  ],
+  [
+    "left",
+    "left",
+    "down",
+  ],
+]
+`;
+
+exports[`Cube F 4`] = `
+[
+  [
+    "up",
+    "right",
+    "right",
+  ],
+  [
+    "up",
+    "right",
+    "right",
+  ],
+  [
+    "up",
+    "right",
+    "right",
+  ],
+]
+`;
+
+exports[`Cube F 5`] = `
+[
+  [
+    "front",
+    "front",
+    "front",
+  ],
+  [
+    "front",
+    "front",
+    "front",
+  ],
+  [
+    "front",
+    "front",
+    "front",
+  ],
+]
+`;
+
+exports[`Cube F 6`] = `
+[
+  [
+    "back",
+    "back",
+    "back",
+  ],
+  [
+    "back",
+    "back",
+    "back",
+  ],
+  [
+    "back",
+    "back",
+    "back",
+  ],
+]
+`;
+
+exports[`Cube D 1`] = `
+[
+  [
+    "up",
+    "up",
+    "up",
+  ],
+  [
+    "up",
+    "up",
+    "up",
+  ],
+  [
+    "up",
+    "up",
+    "up",
+  ],
+]
+`;
+
+exports[`Cube D 2`] = `
+[
+  [
+    "down",
+    "down",
+    "down",
+  ],
+  [
+    "down",
+    "down",
+    "down",
+  ],
+  [
+    "down",
+    "down",
+    "down",
+  ],
+]
+`;
+
+exports[`Cube D 3`] = `
+[
+  [
+    "left",
+    "left",
+    "left",
+  ],
+  [
+    "left",
+    "left",
+    "left",
+  ],
+  [
+    "back",
+    "back",
+    "back",
+  ],
+]
+`;
+
+exports[`Cube D 4`] = `
+[
+  [
+    "right",
+    "right",
+    "right",
+  ],
+  [
+    "right",
+    "right",
+    "right",
+  ],
+  [
+    "front",
+    "front",
+    "front",
+  ],
+]
+`;
+
+exports[`Cube D 5`] = `
+[
+  [
+    "front",
+    "front",
+    "front",
+  ],
+  [
+    "front",
+    "front",
+    "front",
+  ],
+  [
+    "left",
+    "left",
+    "left",
+  ],
+]
+`;
+
+exports[`Cube D 6`] = `
+[
+  [
+    "back",
+    "back",
+    "back",
+  ],
+  [
+    "back",
+    "back",
+    "back",
+  ],
+  [
+    "right",
+    "right",
+    "right",
+  ],
+]
+`;
+
+exports[`Cube L 1`] = `
+[
+  [
+    "back",
+    "up",
+    "up",
+  ],
+  [
+    "back",
+    "up",
+    "up",
+  ],
+  [
+    "back",
+    "up",
+    "up",
+  ],
+]
+`;
+
+exports[`Cube L 2`] = `
+[
+  [
+    "front",
+    "down",
+    "down",
+  ],
+  [
+    "front",
+    "down",
+    "down",
+  ],
+  [
+    "front",
+    "down",
+    "down",
+  ],
+]
+`;
+
+exports[`Cube L 3`] = `
+[
+  [
+    "left",
+    "left",
+    "left",
+  ],
+  [
+    "left",
+    "left",
+    "left",
+  ],
+  [
+    "left",
+    "left",
+    "left",
+  ],
+]
+`;
+
+exports[`Cube L 4`] = `
+[
+  [
+    "right",
+    "right",
+    "right",
+  ],
+  [
+    "right",
+    "right",
+    "right",
+  ],
+  [
+    "right",
+    "right",
+    "right",
+  ],
+]
+`;
+
+exports[`Cube L 5`] = `
+[
+  [
+    "up",
+    "front",
+    "front",
+  ],
+  [
+    "up",
+    "front",
+    "front",
+  ],
+  [
+    "up",
+    "front",
+    "front",
+  ],
+]
+`;
+
+exports[`Cube L 6`] = `
+[
+  [
+    "back",
+    "back",
+    "down",
+  ],
+  [
+    "back",
+    "back",
+    "down",
+  ],
+  [
+    "back",
+    "back",
+    "down",
+  ],
+]
+`;
+
+exports[`Cube B 1`] = `
+[
+  [
+    "right",
+    "right",
+    "right",
+  ],
+  [
+    "up",
+    "up",
+    "up",
+  ],
+  [
+    "up",
+    "up",
+    "up",
+  ],
+]
+`;
+
+exports[`Cube B 2`] = `
+[
+  [
+    "down",
+    "down",
+    "down",
+  ],
+  [
+    "down",
+    "down",
+    "down",
+  ],
+  [
+    "left",
+    "left",
+    "left",
+  ],
+]
+`;
+
+exports[`Cube B 3`] = `
+[
+  [
+    "up",
+    "left",
+    "left",
+  ],
+  [
+    "up",
+    "left",
+    "left",
+  ],
+  [
+    "up",
+    "left",
+    "left",
+  ],
+]
+`;
+
+exports[`Cube B 4`] = `
+[
+  [
+    "right",
+    "right",
+    "down",
+  ],
+  [
+    "right",
+    "right",
+    "down",
+  ],
+  [
+    "right",
+    "right",
+    "down",
+  ],
+]
+`;
+
+exports[`Cube B 5`] = `
+[
+  [
+    "front",
+    "front",
+    "front",
+  ],
+  [
+    "front",
+    "front",
+    "front",
+  ],
+  [
+    "front",
+    "front",
+    "front",
+  ],
+]
+`;
+
+exports[`Cube B 6`] = `
+[
+  [
+    "back",
+    "back",
+    "back",
+  ],
+  [
+    "back",
+    "back",
+    "back",
+  ],
+  [
+    "back",
+    "back",
+    "back",
+  ],
+]
+`;
+
+exports[`Cube scramble 1`] = `
+Cube {
+  "centers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+  ],
+  "corners": {
+    "orient": [
+      1,
+      1,
+      2,
+      0,
+      0,
+      1,
+      1,
+      0,
+    ],
+    "perm": [
+      6,
+      0,
+      1,
+      7,
+      5,
+      2,
+      4,
+      3,
+    ],
+  },
+  "edges": {
+    "orient": [
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+    ],
+    "perm": [
+      2,
+      10,
+      6,
+      8,
+      11,
+      5,
+      4,
+      3,
+      7,
+      9,
+      0,
+      1,
+    ],
+  },
+  "moves": " D2 F2 L B2 U2 R' B2 L' R U2 B U' R' F' L F' D U2 F'",
+}
+`;
+
+exports[`Cube scramble 2`] = `
+[
+  [
+    "front",
+    "up",
+    "left",
+  ],
+  [
+    "back",
+    "up",
+    "front",
+  ],
+  [
+    "down",
+    "right",
+    "right",
+  ],
+]
+`;
+
+exports[`Cube scramble 3`] = `
+[
+  [
+    "right",
+    "down",
+    "front",
+  ],
+  [
+    "left",
+    "left",
+    "up",
+  ],
+  [
+    "back",
+    "up",
+    "front",
+  ],
+]
+`;
+
+exports[`Cube scramble 4`] = `
+[
+  [
+    "left",
+    "front",
+    "back",
+  ],
+  [
+    "left",
+    "front",
+    "back",
+  ],
+  [
+    "left",
+    "up",
+    "left",
+  ],
+]
+`;
+
+exports[`Cube scramble 5`] = `
+[
+  [
+    "up",
+    "down",
+    "up",
+  ],
+  [
+    "left",
+    "right",
+    "right",
+  ],
+  [
+    "down",
+    "right",
+    "front",
+  ],
+]
+`;
+
+exports[`Cube scramble 6`] = `
+[
+  [
+    "back",
+    "front",
+    "down",
+  ],
+  [
+    "back",
+    "back",
+    "down",
+  ],
+  [
+    "up",
+    "left",
+    "right",
+  ],
+]
+`;
+
+exports[`Cube scramble 7`] = `
+[
+  [
+    "up",
+    "back",
+    "back",
+  ],
+  [
+    "right",
+    "down",
+    "down",
+  ],
+  [
+    "down",
+    "front",
+    "right",
+  ],
+]
+`;

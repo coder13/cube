@@ -1,8 +1,29 @@
 import { hasParity, Cube, translateCP } from "@cp/lib";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 function App() {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState(() => {
+    const query = new URLSearchParams(window.location.search);
+    if (query.has("moves") && query.get("moves")) {
+      return decodeURIComponent(query.get("moves")!.toString());
+    }
+    return "";
+  });
+
+  useEffect(() => {
+    if (input) {
+      const url = new URL(location.href);
+      url.search =
+        "?" +
+        new URLSearchParams({
+          moves: encodeURIComponent(input),
+        }).toString();
+
+      window.history.pushState(null, "", url.toString());
+    } else {
+      window.history.pushState(null, "", new URL(location.origin));
+    }
+  }, [input]);
 
   const cube = useMemo(() => {
     const trimmed = input
