@@ -1,6 +1,6 @@
-import { hasParity, Cube, translateCP } from "@cp/lib";
 import { useEffect, useMemo, useState } from "react";
-import { Cube as CubeRenderer } from "react-cube-svg";
+import { hasParity, Cube, translateCP } from "@cp/lib";
+import { CubeRenderer } from "@cp/renderer";
 
 function App() {
   const [input, setInput] = useState(() => {

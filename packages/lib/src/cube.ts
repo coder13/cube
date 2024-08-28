@@ -1,4 +1,4 @@
-import { PieceSetWithOrientation, MoveDef } from "./types";
+import { PieceSetWithOrientation, MoveDef, Face, Center } from "./types";
 import { solved, cycle, combine } from "./utils";
 
 // cube containing corners and edges each containing a permutation and orientation array
@@ -70,21 +70,42 @@ export const Moves: { [x: string]: MoveDef } = {
       perm: [8, 1, 0, 3, 4, 5, 6, 7, 10, 9, 2, 11],
       orient: [1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0],
     },
-    centers: [4, 1, 0, 3, 5, 2],
+    centers: [
+      Center.back,
+      Center.left,
+      Center.up,
+      Center.right,
+      Center.down,
+      Center.front,
+    ],
   },
   S: {
     edges: {
-      perm: [0, 9, 2, 1, 4, 5, 6, 7, 8, 11, 10, 3],
+      perm: [0, 3, 2, 11, 4, 5, 6, 7, 8, 1, 10, 9],
       orient: [0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1],
     },
-    centers: [3, 0, 2, 5, 4, 1],
+    centers: [
+      Center.left,
+      Center.down,
+      Center.front,
+      Center.up,
+      Center.back,
+      Center.right,
+    ],
   },
   E: {
     edges: {
       perm: [0, 1, 2, 3, 5, 6, 7, 4, 8, 9, 10, 11],
       orient: [0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0],
     },
-    centers: [0, 4, 1, 2, 3, 5],
+    centers: [
+      Center.up,
+      Center.back,
+      Center.left,
+      Center.front,
+      Center.right,
+      Center.down,
+    ],
   },
 };
 
@@ -100,17 +121,15 @@ const gen = function (key: keyof typeof Moves) {
 /* Rotations: */
 Moves.y = combine([Moves.U, Moves["E'"], Moves["D'"]]);
 Moves.x = combine([Moves.R, Moves["M'"], Moves["L'"]]);
-Moves.z = combine([Moves.F, Moves["S'"], Moves["B'"]]);
+Moves.z = combine([Moves.F, Moves["S"], Moves["B'"]]);
 
-Moves.u = combine([Moves.U, Moves["E'"]]);
-Moves.r = combine([Moves.R, Moves["M'"]]);
-Moves.f = combine([Moves.F, Moves["S'"]]);
-Moves.d = combine([Moves.D, Moves.E]);
-Moves.l = combine([Moves.L, Moves["M'"]]);
-Moves.b = combine([Moves.B, Moves.S]);
-["y", "x", "z"].forEach(gen);
-
-export type Face = "up" | "down" | "left" | "right" | "back" | "front";
+Moves.u = combine([Moves["E'"], Moves.U]);
+Moves.r = combine([Moves["M'"], Moves.R]);
+Moves.f = combine([Moves["S"], Moves.F]);
+Moves.d = combine([Moves["E"], Moves.D]);
+Moves.l = combine([Moves["M"], Moves.L]);
+Moves.b = combine([Moves["S'"], Moves.B]);
+["u", "r", "f", "d", "l", "b", "y", "x", "z"].forEach(gen);
 
 // 0    1     2    3     4    5     6    7
 // UBL, UBR,  UFR, UFL,  DBL, DBR,  DFR, DFL
@@ -149,35 +168,52 @@ const corner = (p: number, o: number, offset = 0) =>
 const edge = (p: number, o: number, offset = 0) => Edges[p][(o + offset) % 2];
 const center = (p: number) => Centers[p];
 
-const Faces = {
-  up: (cp: number[], co: number[], ep: number[], eo: number[]) => [
+const Faces: Record<
+  Face,
+  (
+    cp: number[],
+    co: number[],
+    ep: number[],
+    eo: number[],
+    centers: number[]
+  ) => [[Face, Face, Face], [Face, Face, Face], [Face, Face, Face]]
+> = {
+  up: (cp, co, ep, eo, centers) => [
     [corner(cp[0], co[0]), edge(ep[0], eo[0]), corner(cp[1], co[1])],
-    [edge(ep[3], eo[3]), center(0), edge(ep[1], eo[1])],
+    [edge(ep[3], eo[3]), center(centers[Center.up]), edge(ep[1], eo[1])],
     [corner(cp[3], co[3]), edge(ep[2], eo[2]), corner(cp[2], co[2])],
   ],
-  left: (cp: number[], co: number[], ep: number[], eo: number[]) => [
+  left: (cp, co, ep, eo, centers) => [
     [corner(cp[0], co[0], 1), edge(ep[3], eo[3], 1), corner(cp[3], co[3], 2)],
-    [edge(ep[4], eo[4], 1), center(1), edge(ep[7], eo[7], 1)],
+    [
+      edge(ep[4], eo[4], 1),
+      center(centers[Center.left]),
+      edge(ep[7], eo[7], 1),
+    ],
     [corner(cp[4], co[4], 2), edge(ep[11], eo[11], 1), corner(cp[7], co[7], 1)],
   ],
-  front: (cp: number[], co: number[], ep: number[], eo: number[]) => [
+  front: (cp, co, ep, eo, centers) => [
     [corner(cp[3], co[3], 1), edge(ep[2], eo[2], 1), corner(cp[2], co[2], 2)],
-    [edge(ep[7], eo[7]), center(2), edge(ep[6], eo[6])],
+    [edge(ep[7], eo[7]), center(centers[Center.front]), edge(ep[6], eo[6])],
     [corner(cp[7], co[7], 2), edge(ep[10], eo[10], 1), corner(cp[6], co[6], 1)],
   ],
-  right: (cp: number[], co: number[], ep: number[], eo: number[]) => [
+  right: (cp, co, ep, eo, centers) => [
     [corner(cp[2], co[2], 1), edge(ep[1], eo[1], 1), corner(cp[1], co[1], 2)],
-    [edge(ep[6], eo[6], 1), center(3), edge(ep[5], eo[5], 1)],
+    [
+      edge(ep[6], eo[6], 1),
+      center(centers[Center.right]),
+      edge(ep[5], eo[5], 1),
+    ],
     [corner(cp[6], co[6], 2), edge(ep[9], eo[9], 1), corner(cp[5], co[5], 1)],
   ],
-  back: (cp: number[], co: number[], ep: number[], eo: number[]) => [
+  back: (cp, co, ep, eo, centers) => [
     [corner(cp[1], co[1], 1), edge(ep[0], eo[0], 1), corner(cp[0], co[0], 2)],
-    [edge(ep[5], eo[5]), center(4), edge(ep[4], eo[4])],
+    [edge(ep[5], eo[5]), center(centers[Center.back]), edge(ep[4], eo[4])],
     [corner(cp[5], co[5], 2), edge(ep[8], eo[8], 1), corner(cp[4], co[4], 1)],
   ],
-  down: (cp: number[], co: number[], ep: number[], eo: number[]) => [
+  down: (cp, co, ep, eo, centers) => [
     [corner(cp[7], co[7]), edge(ep[10], eo[10]), corner(cp[6], co[6])],
-    [edge(ep[11], eo[11]), center(5), edge(ep[9], eo[9])],
+    [edge(ep[11], eo[11]), center(centers[Center.down]), edge(ep[9], eo[9])],
     [corner(cp[4], co[4]), edge(ep[8], eo[8]), corner(cp[5], co[5])],
   ],
 };
@@ -237,7 +273,13 @@ export default class Cube {
   }
 
   getFace(face: "up" | "left" | "front" | "right" | "back" | "down") {
-    const { corners, edges } = this;
-    return Faces[face](corners.perm, corners.orient, edges.perm, edges.orient);
+    const { corners, edges, centers } = this;
+    return Faces[face](
+      corners.perm,
+      corners.orient,
+      edges.perm,
+      edges.orient,
+      centers
+    );
   }
 }

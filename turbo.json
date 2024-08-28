@@ -14,6 +14,10 @@
         "!.next/cache/**",
         "dist/**"
       ]
+    },
+    "test": {},
+    "test:watch": {
+      "persistent": true
     }
   }
 }

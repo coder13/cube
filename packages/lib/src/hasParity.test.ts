@@ -60,7 +60,7 @@ describe("hasParity", () => {
   });
 });
 
-describe.only("translateCP", () => {
+describe("translateCP", () => {
   test("should handle any corner in DBL", () => {
     expect(translateCP(new Cube("L2").corners.perm)).toMatchObject([
       1, 2, 5, 6, 3, 4, 7,
